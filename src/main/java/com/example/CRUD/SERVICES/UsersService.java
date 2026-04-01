@@ -2,6 +2,7 @@ package com.example.CRUD.SERVICES;
 
 import com.example.CRUD.ENTITY.UsersEntity;
 import com.example.CRUD.REPO.UsersRepo;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,18 @@ public class UsersService {
 
     public List<UsersEntity> getAllUsers(){
         return  this.usersRepo.findAll();
+    }
+
+    public UsersEntity getUserById(Integer id){
+        return  this.usersRepo.getUserById(id);
+    }
+
+    public UsersEntity updateUser(Integer id,UsersEntity usersEntity){
+        UsersEntity existingUser= this.usersRepo.findById(id).orElseThrow(()->new RuntimeException("user not found"));
+        existingUser.setEmail(usersEntity.getEmail());
+        existingUser.setName(usersEntity.getName());
+        existingUser.setPassword(usersEntity.getPassword());
+        return  this.usersRepo.save(existingUser);
     }
 
 }

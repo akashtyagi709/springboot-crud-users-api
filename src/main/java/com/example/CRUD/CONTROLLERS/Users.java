@@ -11,6 +11,7 @@ import java.util.List;
 @RequestMapping("/api")
 public class Users {
     @Autowired UsersService usersService;
+
     @GetMapping("/healthcheck")
     public  String getStatusOfApi(){
         return "Hi Akash Your API is working fine.";
@@ -29,12 +30,38 @@ public class Users {
         }
     }
 
+    @GetMapping("/getuserbyId/{id}")
+    public  ResponseEntity<ApiResponse<UsersEntity>> getById(@PathVariable  Integer id){
+        UsersEntity user= this.usersService.getUserById(id);
+        ApiResponse<UsersEntity> response;
+        if (user==null){
+            response = new ApiResponse<>("User not found ",false,user);
+            return  ResponseEntity.status(404).body(response);
+        }else{
+            response= new ApiResponse<>("User data found Successfully",true,user);
+            return  ResponseEntity.status(200).body(response);
+        }
+    }
 
     @PostMapping("/addUser")
     public ResponseEntity<ApiResponse<UsersEntity>> addUser(@RequestBody UsersEntity usersEntity){
         UsersEntity savedUsers =this.usersService.addNewUser(usersEntity);
         ApiResponse<UsersEntity> response= new ApiResponse<>("User created Successfully",true,savedUsers);
         return  ResponseEntity.status(200).body(response);
+    }
+
+    @PutMapping("/updateUser/{id}")
+    public ResponseEntity<ApiResponse<UsersEntity>> updateUser(@PathVariable Integer id,@RequestBody UsersEntity usersEntity){
+        UsersEntity usersEntity1 = this.usersService.updateUser(id,usersEntity);
+        ApiResponse<UsersEntity> response;
+        if (usersEntity1==null){
+            response= new ApiResponse<>("User not updated",false,usersEntity1);
+            return ResponseEntity.status(404).body(response);
+        }
+        else{
+            response=new ApiResponse<>("User Updated Successfully",true,usersEntity);
+            return ResponseEntity.status(200).body(response);
+        }
     }
 
 }
