@@ -1,8 +1,8 @@
 package com.example.CRUD.SERVICES;
 
+import com.example.CRUD.CORE.ApiResponse;
 import com.example.CRUD.ENTITY.UsersEntity;
 import com.example.CRUD.REPO.UsersRepo;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +30,11 @@ public class UsersService {
         existingUser.setName(usersEntity.getName());
         existingUser.setPassword(usersEntity.getPassword());
         return  this.usersRepo.save(existingUser);
+    }
+
+    public void deleteUser(Integer id){
+        UsersEntity user= this.usersRepo.findById(id).orElseThrow(()->new RuntimeException("user not found"));
+        this.usersRepo.delete(user);
     }
 
 }

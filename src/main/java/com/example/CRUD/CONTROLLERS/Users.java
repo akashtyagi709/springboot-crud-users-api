@@ -63,5 +63,11 @@ public class Users {
             return ResponseEntity.status(200).body(response);
         }
     }
+    @DeleteMapping("/deleteUserById/{id}")
+    public ResponseEntity<ApiResponse<String>> deleteUser(@PathVariable Integer id){
+         this.usersService.deleteUser(id);
+         ApiResponse<String> response= new ApiResponse<>("User Deleted Succesfully",true,null);
+        return ResponseEntity.ok(response);
+    }
 
 }
