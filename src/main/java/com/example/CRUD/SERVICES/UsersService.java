@@ -1,6 +1,5 @@
 package com.example.CRUD.SERVICES;
 
-import com.example.CRUD.CORE.ApiResponse;
 import com.example.CRUD.ENTITY.UsersEntity;
 import com.example.CRUD.REPO.UsersRepo;
 import org.springframework.beans.factory.annotation.Autowired;
