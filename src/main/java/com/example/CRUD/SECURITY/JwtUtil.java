@@ -3,18 +3,21 @@ package com.example.CRUD.SECURITY;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.stereotype.Component;
+import io.jsonwebtoken.security.Keys;
 
+import java.security.Key;
 import java.util.Date;
-
+@Component
 public class JwtUtil {
-    private final String SECRET="AKASH";
+    private final Key SECRET_KEY=Keys.hmacShaKeyFor("mysecretkeymysecretkeymysecretkey12".getBytes());
 
     public  String generateToken(String email){
         return Jwts.builder()
                 .setSubject(email)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis()+1000*60*60))
-                .signWith(SignatureAlgorithm.HS256,SECRET)
+                .signWith(SECRET_KEY,SignatureAlgorithm.HS256)
                 .compact();
     }
 
@@ -33,8 +36,8 @@ public class JwtUtil {
 
     private Claims getClaims(String token){
         return  Jwts.parser()
-                .setSigningKey(SECRET)
-                .parseClaimsJwt(token)
+                .setSigningKey(SECRET_KEY)
+                .parseClaimsJws(token)
                 .getBody();
     }
 
