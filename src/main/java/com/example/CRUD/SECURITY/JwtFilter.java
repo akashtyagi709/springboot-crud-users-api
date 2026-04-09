@@ -15,7 +15,6 @@ import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 
 import java.io.IOException;
-import java.rmi.ServerException;
 
 @Component
 public class JwtFilter extends OncePerRequestFilter {
