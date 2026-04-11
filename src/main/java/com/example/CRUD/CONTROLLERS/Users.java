@@ -12,10 +12,25 @@ import java.util.List;
 public class Users {
     @Autowired UsersService usersService;
 
-    @GetMapping("/healthcheck")
-    public  String getStatusOfApi(){
-        return "Hi Akash Your API is working fine.";
-    }
+//    @GetMapping("/healthcheck")
+//    public  String getStatusOfApi(){
+//        return "Hi, Your API is working fine.";
+//    }
+
+//    @GetMapping("/healthcheck")
+//    public String getStatusOfApi() {
+//        return """
+//            <html>
+//                <head>
+//                    <title>Health Check</title>
+//                </head>
+//                <body>
+//                    <h1>✅ API is working fine</h1>
+//                    <p>Status: UP</p>
+//                </body>
+//            </html>
+//            """;
+//    }
 
     @GetMapping("/getAllUsers")
     public ResponseEntity<ApiResponse<List<UsersEntity>>> getAll(){

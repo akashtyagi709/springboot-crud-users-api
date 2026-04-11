@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>API Health Status</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+            width: 350px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .status {
+            font-size: 22px;
+            margin-top: 10px;
+            color: #2ecc71;
+            font-weight: bold;
+        }
+
+        .icon {
+            font-size: 60px;
+        }
+
+        h1 {
+            margin: 15px 0 5px;
+            color: #333;
+        }
+
+        p {
+            color: #777;
+        }
+
+        .time {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <div class="icon">✅</div>
+    <h1>API is Running</h1>
+    <div class="status">Status: UP</div>
+    <p>Your backend service is healthy and responding.</p>
+
+    <div class="time" id="clock"></div>
+
+    <div class="footer">
+        Spring Boot Health Monitor
+    </div>
+</div>
+
+<script>
+    function updateTime() {
+        const now = new Date();
+        const formattedTime = now.toLocaleString();
+        document.getElementById("clock").innerText = formattedTime;
+    }
+
+    setInterval(updateTime, 1000);
+    updateTime();
+</script>
+
+</body>
+</html>
