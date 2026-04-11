@@ -1,14 +1,104 @@
-This project demonstrates a basic Spring Boot application with:
+## Spring Boot User Management API
 
-User Management: Add, retrieve, and list users.
-Database Integration: JPA/Hibernate mapping with MySQL (or any supported DB).
-Consistent API Response: All endpoints return a standard ApiResponse JSON object with message, success, and data.
-Error Handling: Global exception handling with @ControllerAdvice.
-Lombok Integration: Reduces boilerplate code for getters, setters, and constructors.
-RESTful Design: Clear endpoints with proper HTTP status codes.
+This project demonstrates a fully functional Spring Boot application with modern best practices and essential features for building scalable RESTful APIs.
 
-JWT token for API authentaction and authorization
+---
 
-Spring Security
+## Features
 
-Apply ThymeLeaf for showing the HealthCheck API
+### Authentication & Security
+- JWT-based authentication and authorization
+- Spring Security integration
+- Secure endpoints with role-based access (optional extension)
+
+### User Management
+- Create, retrieve, update, and delete users
+- List all users (pagination can be added)
+
+### Database Integration
+- JPA / Hibernate for ORM
+- Compatible with MySQL (or any supported relational database)
+- Clean entity and repository structure
+
+### REST API Design
+- Well-structured RESTful endpoints
+- Consistent API response format:
+
+{
+"message": "Operation successful",
+"success": true,
+"data": {}
+}
+
+### Error Handling
+- Global exception handling using @ControllerAdvice
+- Custom error responses for better debugging and user experience
+
+### Code Optimization
+- Lombok integration to reduce boilerplate code
+    - Getters / Setters
+    - Constructors
+    - Builder pattern (optional)
+
+### Health Monitoring
+- Spring Boot Actuator integration
+- Health Check API available
+- Styled using Thymeleaf (optional UI view)
+
+---
+
+## Tech Stack
+
+- Java 17
+- Spring Boot
+- Spring Security
+- JWT (JSON Web Token)
+- Spring Data JPA / Hibernate
+- MySQL (or compatible DB)
+- Lombok
+- Thymeleaf (for health check UI)
+
+---
+
+## Project Structure
+
+src/
+├── controller
+├── service
+├── repository
+├── entity
+├── dto
+├── security
+├── exception
+└── config
+
+---
+
+## Setup Instructions
+
+1. Clone the repository  
+   git clone <your-repo-url>
+
+2. Configure database in application.properties or application.yml
+
+3. Run the application  
+   mvn spring-boot:run
+
+4. Access APIs at  
+   http://localhost:8080
+
+---
+
+## Future Enhancements (Optional)
+
+- Role-based authorization (Admin/User)
+- Swagger API documentation
+- Pagination & sorting
+- Docker support
+- CI/CD pipeline integration
+
+---
+
+## Contribution
+
+Feel free to fork this repository and contribute improvements!
