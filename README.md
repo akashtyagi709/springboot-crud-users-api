@@ -6,3 +6,9 @@ Consistent API Response: All endpoints return a standard ApiResponse JSON object
 Error Handling: Global exception handling with @ControllerAdvice.
 Lombok Integration: Reduces boilerplate code for getters, setters, and constructors.
 RESTful Design: Clear endpoints with proper HTTP status codes.
+
+JWT token for API authentaction and authorization
+
+Spring Security
+
+Apply ThymeLeaf for showing the HealthCheck API
