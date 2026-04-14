@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Retro API Status</title>
+    <title>API Status</title>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
         body {
@@ -30,7 +30,6 @@
             );
             pointer-events: none;
         }
-
         .card {
             background: #111;
             border: 3px solid #00ffcc;
@@ -41,90 +40,72 @@
             box-shadow: 0 0 20px #00ffcc;
             animation: flicker 2s infinite alternate;
         }
-
         .icon {
             font-size: 50px;
             animation: bounce 1s infinite;
         }
-
         h1 {
             font-size: 16px;
             margin: 20px 0;
             text-shadow: 0 0 10px #00ffcc;
         }
-
         .status {
             font-size: 14px;
             color: #00ff00;
             animation: pulse 1.5s infinite;
         }
-
         p {
             font-size: 10px;
             color: #aaa;
         }
-
         .time {
             margin-top: 20px;
             font-size: 12px;
             color: #ffcc00;
             animation: blink 1s infinite;
         }
-
         .footer {
             margin-top: 20px;
             font-size: 8px;
             color: #666;
         }
-
         @keyframes bounce {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
         }
-
         @keyframes pulse {
             0% { text-shadow: 0 0 5px #00ff00; }
             100% { text-shadow: 0 0 20px #00ff00; }
         }
-
         @keyframes blink {
             50% { opacity: 0.3; }
         }
-
         @keyframes flicker {
             0% { opacity: 0.95; }
             100% { opacity: 1; }
         }
-
     </style>
 </head>
-
 <body>
-
 <div class="card">
     <div class="icon">🟢</div>
     <h1>SERVER ONLINE</h1>
     <div class="status">STATUS: UP</div>
     <p>SYSTEM HEALTH: STABLE</p>
-
     <div class="time" id="clock"></div>
-
     <div class="footer">
         >>> SPRING BOOT MONITOR v1.0 <<<
     </div>
 </div>
-
 <script>
     function updateTime() {
         const now = new Date();
         const formattedTime = now.toLocaleTimeString();
         document.getElementById("clock").innerText = formattedTime;
     }
-
     setInterval(updateTime, 1000);
     updateTime();
 </script>
-
 </body>
 </html>
 <!DOCTYPE html>
@@ -133,7 +114,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nokia Full Screen UI</title>
-
     <style>
         html, body{
             margin:0;
@@ -143,33 +123,24 @@
             overflow:hidden;
             font-family: monospace;
         }
-
         .device{
             width:100vw;
             height:100vh;
-
             background:#9bbc0f;
-
             border:10px solid #1a1a1a;
             box-sizing:border-box;
-
             display:flex;
             flex-direction:column;
-
             color:#0f380f;
-
             box-shadow:
                 inset 0 0 20px rgba(0,0,0,0.4);
         }
-
         .topbar{
             display:flex;
             justify-content:space-between;
             padding:12px 16px;
             font-size:18px;
-
             border-bottom:2px solid #0f380f;
-
             flex-shrink:0;
         }
         .screen{
@@ -179,14 +150,12 @@
             line-height:1.4;
             overflow:hidden;
         }
-
         .footer{
             flex-shrink:0;
             padding:10px 16px;
             font-size:14px;
             border-top:2px solid #0f380f;
         }
-
         .cursor{
             display:inline-block;
             width:10px;
@@ -194,7 +163,6 @@
             background:#0f380f;
             animation:blink 0.8s infinite;
         }
-
         @keyframes blink{
             50%{opacity:0;}
         }
@@ -210,30 +178,24 @@
         }
     </style>
 </head>
-
 <body>
 
 <div class="device">
-
     <div class="topbar">
         <span>📶 SIGNAL</span>
         <span id="time">--:--</span>
         <span>🔋 100%</span>
     </div>
-
     <div class="screen" id="log">
         BOOTING SYSTEM<span class="dots"></span><span class="cursor"></span>
     </div>
-
     <div class="footer">
         NOKIA 3310 HEALTH MONITOR
     </div>
-
 </div>
 
 <script>
     const log = document.getElementById("log");
-
     const steps = [
         "Connecting to API",
         `GET ${window.location}`,
@@ -248,9 +210,7 @@
         "",
         "HTTP 200 SUCCESS"
     ];
-
     let i = 0;
-
     function run(){
         if(i < steps.length){
             log.innerHTML += "<br>" + steps[i];
@@ -260,12 +220,10 @@
             log.innerHTML += "<br><br>SYSTEM READY";
         }
     }
-
     setTimeout(() => {
         log.innerHTML = "INITIALIZING SYSTEM...";
         setTimeout(run, 900);
     }, 800);
-
     function updateTime(){
         const now = new Date();
         document.getElementById("time").innerText =
@@ -274,6 +232,5 @@
     setInterval(updateTime,1000);
     updateTime();
 </script>
-
 </body>
 </html>

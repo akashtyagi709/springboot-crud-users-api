@@ -85,7 +85,8 @@ src/
    mvn spring-boot:run
 
 4. Access APIs at  
-   http://localhost:8080
+5. For Example HealthCheck API endpoint is
+ ## http://localhost:8080/api/healthcheck
 
 ---
 
