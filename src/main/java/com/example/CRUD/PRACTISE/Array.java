@@ -7,7 +7,7 @@ public class Array {
         list.add(new Employee(1,"Akash",34400));
         list.add(new Employee(2,"Ravi",50000));
         list.add(new Employee(3,"Rohan",1000));
-        System.out.println("HIIIII "+list);
+        System.out.println("HIIIII "+list.toString());
         Map<Integer,Employee> map= new HashMap<>();
         for (Employee emp:list){
             if (emp.salary>5000){
@@ -30,5 +30,14 @@ class Employee {
         this.id = id;
         this.name = name;
         this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", salary=" + salary +
+                '}';
     }
 }
