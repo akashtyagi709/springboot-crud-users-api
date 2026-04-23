@@ -22,7 +22,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
         httpSecurity
-                .cors(cors -> {})
+//                .cors(cors -> {})
                 .csrf(csrf->csrf.disable())
                 .authorizeHttpRequests(auth->auth
                         .requestMatchers("/auth/**","/api/healthcheck").permitAll()
