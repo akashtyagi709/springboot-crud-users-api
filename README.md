@@ -86,7 +86,8 @@ src/
 
 4. Access APIs at  
 5. For Example HealthCheck API endpoint is
- ## http://localhost:8080/api/healthcheck
+ ## https://springboot-crud-users-api.onrender.com/api/healthcheck
+This may take some time as Render takes 30-40 seconds to restart service
 
 ---
 
