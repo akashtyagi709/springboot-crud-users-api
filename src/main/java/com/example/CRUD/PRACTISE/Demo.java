@@ -71,3 +71,16 @@ class frequency{
 
 
 }
+
+
+abstract class abstractone{
+    int num=11;
+
+    abstract void sound();
+}
+
+interface diff{
+    int num1=11;
+    void test();
+}
+
