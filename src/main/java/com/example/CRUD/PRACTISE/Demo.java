@@ -1,6 +1,7 @@
 package com.example.CRUD.PRACTISE;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Demo {
     public static void main(String[] args) {
@@ -205,4 +206,55 @@ class TopTenDifferenceQuestions{
 
 
     }
+}
+
+class MyTask  extends Thread{
+    public void run(){
+        System.out.println("Running ...");
+    }
+}
+
+class MyAnotherTask implements Runnable {
+    @Override
+    public void run() {
+        System.out.println("Task is running");
+    }
+}
+
+class ThreadMain{
+    public static void main(String[] args) {
+        MyTask myTask = new MyTask();
+        Thread t = new Thread(new MyAnotherTask());
+        myTask.start();
+        t.start();
+    }
+}
+
+@FunctionalInterface
+interface Greeting{
+    void sayHello();
+}
+
+@FunctionalInterface
+interface  Add{
+    int sum(int a , int b);
+}
+
+class lambda{
+    public static void main(String[] args) {
+        Greeting greeting= () -> System.out.println("Hello");
+       greeting.sayHello();
+        Add add=(a,b) -> a + b;
+        System.out.println(add.sum(12,11));
+        List<Integer> list= Arrays.asList(1,2,3,4,5,6);
+        List<Integer> evennumber = list.stream()
+                .filter(n-> n>4)
+                .map(n-> n*n)
+                .collect(Collectors.toList());
+        System.out.println(evennumber);
+        int totalSum=evennumber.stream().reduce(0,(a,b)->a+b);
+        System.out.println(totalSum);
+    }
+
+
 }
