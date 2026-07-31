@@ -17,10 +17,10 @@ public class Users {
         List<UsersEntity> users=this.usersService.getAllUsers();
         ApiResponse<List<UsersEntity>> response;
         if (users.isEmpty()){
-            response= new ApiResponse<>("Data not found",false,users);
+            response= new ApiResponse<>("Data not found.",false,users);
             return ResponseEntity.status(404).body(response);
         }else{
-            response=new ApiResponse<>("Data fetch successfully",true,users);
+            response=new ApiResponse<>("Data fetch successfully.",true,users);
             return ResponseEntity.status(200).body(response);
         }
     }
