@@ -110,6 +110,19 @@ The API response time was reduced to 488 ms.
 | Response Time | 9–10 seconds | 488 ms |
 | Improvement | — | **~95% faster** |
 
+# Memurai Redis Commands Used
+Useful Memurai Redis CLI commands used for checking Redis status, debugging cache, and managing stored data.
+
+| No. | Command | Purpose |
+|---|---|---|
+| 1 | `sc query Memurai` | Check Memurai Redis service is running |
+| 2 | `netstat -ano \| findstr :6379` | Check Redis is running on port 6379 |
+| 3 | `memurai-cli ping` | Test Redis connection |
+| 4 | `memurai-cli keys *` | View all Redis keys stored |
+| 5 | `memurai-cli dbsize` | Check total number of keys in Redis database |
+| 6 | `memurai-cli get "employee::1"` | View cached Employee data from Redis |
+| 7 | `memurai-cli flushall` | Clear all Redis cache/data |
+
 
 ## Future Enhancements (Optional)
 

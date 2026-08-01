@@ -7,13 +7,15 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<ApiResponse<String>> handleRuntimeException(RuntimeException runtimeException){
-        String message="Something went Wrong";
-        if (runtimeException.getMessage().contains("Duplicate entry")){
-            message="Duplicate data Found";
-        }
-        ApiResponse<String> response = new ApiResponse<>(message,false,null);
+
+        runtimeException.printStackTrace();
+
+        ApiResponse<String> response =
+                new ApiResponse<>(runtimeException.getMessage(), false, null);
+
         return ResponseEntity.status(400).body(response);
     }
 }
