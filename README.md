@@ -91,6 +91,26 @@ This may take some time as Render takes 30-40 seconds to restart service
 
 ---
 
+## Redis Implementaion
+Implemented Redis caching in the application to optimize API response times for a dataset of 100,000 records.
+
+Before implementing Redis:
+
+The API response time was approximately 9–15 seconds.
+![img_1.png](img_1.png)
+
+After implementing Redis:
+The API response time was reduced to 488 ms.
+![img.png](img.png)
+
+## Performance Comparison
+
+| Metric | Before Redis | After Redis |
+|--------|-------------:|------------:|
+| Response Time | 9–10 seconds | 488 ms |
+| Improvement | — | **~95% faster** |
+
+
 ## Future Enhancements (Optional)
 
 - Role-based authorization (Admin/User)

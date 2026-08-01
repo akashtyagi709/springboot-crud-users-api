@@ -31,8 +31,8 @@ public class EmployeeController {
     }
 
     @GetMapping("/getbyid/{id}")
-    public ResponseEntity<ApiResponse<Employee>> getUser(@PathVariable Integer id){
-        Employee employee =this.employeeService.getUserbyId(id);
+    public ResponseEntity<ApiResponse<Employee>> getEmployee(@PathVariable Integer id){
+        Employee employee =this.employeeService.getEmployeebyId(id);
         ApiResponse<Employee> response;
         if (employee==null){
             response = new ApiResponse<>("User not found ",false,employee);
@@ -45,7 +45,7 @@ public class EmployeeController {
 
     @PostMapping("/save")
     public ResponseEntity<ApiResponse<Employee>> saveEmp(@RequestBody Employee  employee){
-        Employee newemployee = this.employeeService.saveUser(employee);
+        Employee newemployee = this.employeeService.saveEmployee(employee);
         ApiResponse<Employee> response= new ApiResponse<>("Data Saved.",true,newemployee);
         return ResponseEntity.ok(response);
     }

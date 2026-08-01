@@ -15,19 +15,19 @@ public class EmployeeService {
     @Autowired
     EmployeeRepository employeeRepository;
 
-    @Cacheable("employee")
+//    @Cacheable("employee")
     public List<Employee> getAllEmployees() {
         System.out.println("Fetching from Database");
         return employeeRepository.findAll();
     }
 
     @Cacheable(value = "employee" ,key = "#id")
-    public Employee getUserbyId(Integer id){
+    public Employee getEmployeebyId(Integer id){
         return  employeeRepository.getUserById(id);
     }
 
     @CachePut(value = "employee" ,key = "#employee.id")
-    public Employee saveUser(Employee employee){
+    public Employee saveEmployee(Employee employee){
          return employeeRepository.save(employee);
     }
 
