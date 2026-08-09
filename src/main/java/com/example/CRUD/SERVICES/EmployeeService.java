@@ -1,5 +1,4 @@
 package com.example.CRUD.SERVICES;
-
 import com.example.CRUD.ENTITY.Employee;
 import com.example.CRUD.REPO.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +7,6 @@ import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cache.annotation.Caching;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -30,7 +28,6 @@ public class EmployeeService {
         System.out.println("Fetching employee by id from Database");
         return employeeRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Employee not found with id: " + id));
-
     }
 
 
