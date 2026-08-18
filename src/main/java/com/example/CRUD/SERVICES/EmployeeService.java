@@ -22,7 +22,6 @@ public class EmployeeService {
         return employeeRepository.findAll();
     }
 
-
     @Cacheable(value = "employee", key = "#id")
     public Employee getEmployeebyId(Integer id) {
         System.out.println("Fetching employee by id from Database");
