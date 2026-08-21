@@ -140,7 +140,6 @@ public class LastPrep {
                 }
             }
         }
-
         System.out.println( "Largest "+sortArray[0]);
         System.out.println( "Smallest  "+sortArray[sortArray.length-1]);
     }
