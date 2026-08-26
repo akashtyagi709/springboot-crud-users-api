@@ -3,7 +3,7 @@ import java.util.*;
 
 public class LastPrep {
     public static void main(String[] args) {
-        String str="Binary";
+        String str="hello";
         StringBuilder output=new StringBuilder();
         for (int i=str.length()-1; i>=0; i--){
             output=output.append(str.charAt(i));
@@ -116,7 +116,6 @@ public class LastPrep {
         for (int i = 0; i < removeDuplicates.length; i++) {
                 set1.add(removeDuplicates[i]);
         }
-
         System.out.println("removed duplicated " +set1);
         int[] moveZero={1,0,2,0,3,4,0};
         for (int i = 0; i < moveZero.length; i++) {
